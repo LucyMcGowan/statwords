@@ -9,7 +9,7 @@ count_stats <- function(text) {
     tidytext::unnest_tokens(sentence, abstract, token = "sentences", to_lower = FALSE) %>%
     dplyr::mutate(sentence_n = 1:dplyr::n()) %>%
     tidytext::unnest_tokens(word, sentence, drop = FALSE) %>%
-    dplyr::left_join(.statwords$stat_words) %>%
+    dplyr::left_join(.statwords$stat_words, by = "word") %>%
     dplyr::mutate(stat_word = dplyr::case_when(
       is.na(stat_word) ~ 0,
       TRUE ~ 1

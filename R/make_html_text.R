@@ -13,7 +13,7 @@ make_html_text <- function(count_stats_tbl) {
     color = grDevices::rgb(f(values)/255)
   )
   s %>%
-    dplyr::left_join(colors) %>%
+    dplyr::left_join(colors, by = "n_stat_words") %>%
     dplyr::mutate(color = dplyr::case_when(
       n_stat_words == 0 ~ "#fff",
       TRUE ~ color
