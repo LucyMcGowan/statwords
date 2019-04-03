@@ -2,5 +2,7 @@
 
 export("%>%")
 export(count_stats)
-export(make_html)
+export(highlight_stat_text)
+export(make_html_file)
+export(make_html_text)
 importFrom(dplyr,"%>%")

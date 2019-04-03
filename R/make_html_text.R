@@ -1,10 +1,10 @@
-#' Make html
+#' Make html text
 #'
 #' @param count_stats_tbl Tibble generated using the count_stats() function.
 #'
 #' @return Text string of html
 #' @export
-make_html <- function(count_stats_tbl) {
+make_html_text <- function(count_stats_tbl) {
   s <- count_stats_tbl
   f <- grDevices::colorRamp(c("white", "light blue"))
   colors <- tibble::tibble(
