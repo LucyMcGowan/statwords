@@ -21,6 +21,6 @@ make_html_text <- function(count_stats_tbl) {
     sentence = gsub(glue::glue('(\\<{glue::glue_collapse(.statwords$stat_words[,1, drop = TRUE], sep = "\\\\>|\\\\<")}\\>)'), '<b>\\1</b>', sentence, ignore.case = TRUE)) %>%
     glue::glue_data("<span style='background-color: {color}'>{sentence}</span>") -> g
   key <- glue::glue_data(colors, "<span style='background-color: {color}'>{n_stat_words}</span>")
-  glue::glue("{glue::glue_collapse(g)}<br><br><br><b>Number of statistical terms:</b>",
+  glue::glue("{glue::glue_collapse(g, sep = ' ')}<br><br><br><b>Number of statistical terms:</b>",
              "<br>{glue::glue_collapse(key, sep = '  ')}")
 }
